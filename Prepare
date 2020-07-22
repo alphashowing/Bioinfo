@@ -1,0 +1,11 @@
+mkdir -p ${HOME}/project/mRNA/{bin,data/{genes,genome,index,samples},output/{ballgown,hisat2,tmp}}
+
+# Data link
+cd ${HOME}/../Data_benthic/practice/mRNA
+ln -s ${PWD}/Hdh.fa ${HOME}/project/mRNA/data/genome/
+ln -s ${PWD}/Hdh.gff3 ${HOME}/project/mRNA/data/genes/
+
+for i in `find ${PWD} -type f -name "*.fq.gz"`;
+do
+	ln -s ${i} ${HOME}/project/mRNA/data/samples/;
+done
